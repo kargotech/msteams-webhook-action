@@ -1,0 +1,33 @@
+# action.yml
+name: 'Microsoft Teams Incoming Webhook Github Action Container'
+description: 'Post a message to Microsoft Teams Incoming Webhook'
+inputs:
+  webhook_url:
+    description: 'Webhook url'
+    required: true
+  status:
+    description: 'Status of the message: "success", "failed", "neutral"'
+    required: false
+    default: neutral
+  title:
+    description: 'Message title'
+    required: true
+  description:
+    description: 'Message description'
+    required: false
+  mentioned_display:
+    description: 'Mentioned name of the message, separated by comma, both this and "mentioned_email" must be defined together and put on the same order, example: Amber,Barbara,Candace'
+    required: false
+  mentioned_email:
+    description: 'Mentioned email of the message, separated by comma, both this and "mentioned_display" must be defined together and put on the same order, example: amber@test.com,barbara@test.com,candace@test.com'
+    required: false
+  link_display:
+    description: 'Link button of the message, separated by comma, both this and "link_url" must be defined together and put on the same order, example: Click here,Here'
+    required: false
+  link_url:
+    description: 'link url of the message, separated by comma, both this and "link_display" must be defined together and put on the same order, example: https://click.me,https://hereisthelink.com'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
