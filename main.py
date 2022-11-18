@@ -113,6 +113,7 @@ def main():
     link_urls = list(filter(None, tmp_link_url.split(',')))
 
     payload = json.dumps(generate_payload(status, title, description, mentioned_displays, mentioned_emails, link_displays, link_urls))
+    print(payload)
     
     r = requests.post(url = webhook_url, data = payload)
     print(r.text)
