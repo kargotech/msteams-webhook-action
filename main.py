@@ -107,10 +107,10 @@ def main():
     tmp_link_display = os.environ["INPUT_LINK_DISPLAY"]
     tmp_link_url = os.environ["INPUT_LINK_URL"]
 
-    mentioned_displays = tmp_mentioned_display.split(',')
-    mentioned_emails = tmp_mentioned_email.split(',')
-    link_displays = tmp_link_display.split(',')
-    link_urls = tmp_link_url.split(',')
+    mentioned_displays = list(filter(None, tmp_mentioned_display.split(',')))
+    mentioned_emails = list(filter(None, tmp_mentioned_email.split(',')))
+    link_displays = list(filter(None, tmp_link_display.split(',')))
+    link_urls = list(filter(None, tmp_link_url.split(',')))
 
     payload = json.dumps(generate_payload(status, title, description, mentioned_displays, mentioned_emails, link_displays, link_urls))
     
